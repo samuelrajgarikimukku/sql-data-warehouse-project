@@ -1,0 +1,49 @@
+-- Find the Total Sales
+SELECT SUM(sales_amount) as total_sales FROM gold.fact_sales;
+
+-- Find how many items are sold
+SELECT SUM(quantity) as Total_quantity FROM gold.fact_sales;
+
+-- Find the average selling price
+SELECT AVG(price) as average_price FROM gold.fact_sales;
+
+-- Find the Total number of Orders
+SELECT COUNT(order_number) as total_orders FROM gold.fact_sales;
+SELECT COUNT(DISTINCT order_number) as total_orders FROM gold.fact_sales;
+
+-- Find the Total number of products
+SELECT COUNT(product_key) as total_products FROM gold.dim_products
+
+-- Find the Total number of customers
+SELECT COUNT(customer_key) as total_customers FROM gold.dim_customers
+
+-- Find the total number of customers that has placed and order
+SELECT COUNT(DISTINCT customer_key) as total_customers FROM gold.fact_sales
+
+
+-- Genarate a Report that shows all key metrics of the business
+SELECT 'Total_Sales' as measure_name, SUM(sales_amount) as measure_value FROM gold.fact_sales
+UNION ALL 
+SELECT 'Total_Quantity' as measure_name, SUM(quantity) as measure_value FROM gold.fact_sales
+UNION ALL 
+SELECT 'Average_price' as measure_name, AVG(price) as measure_value FROM gold.fact_sales
+UNION ALL
+SELECT 'Total Nr Orders' as measure_name, COUNT(DISTINCT order_number) as measure_value FROM gold.fact_sales
+UNION ALL
+SELECT 'Total Nr Products' as measure_name, COUNT(product_name) as measure_value FROM gold.dim_products
+UNION ALL 
+SELECT 'Total Nr Customers' as measure_name, COUNT(customer_key) as measure_value FROM gold.dim_customers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
