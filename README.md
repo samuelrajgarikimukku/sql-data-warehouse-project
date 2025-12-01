@@ -1,7 +1,7 @@
 # Data Warehouse and Analytics Project
 
 Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+This repository contains a complete end-to-end data solution covering data engineering, data modeling, exploratory data analysis (EDA), and advanced business analytics. The project showcases the full workflow from raw data ingestion to actionable insights.
 
 ---
 ## 🏗️ Data Architecture
@@ -9,9 +9,9 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 ![Data Architecture](docs/data_architecture.png)
 
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV files into a PostgreSQL database.
-2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
+1. **Bronze Layer**: Stores raw data as received from ERP and CRM source files. Data is ingested from CSV files into a PostgreSQL database using full-load ingestion.
+2. **Silver Layer**: Processes and standardizes the Bronze data. Includes data cleansing, normalization, enrichment, duplicate handling, data type corrections, and business rule transformations.
+3. **Gold Layer**: Contains business-ready data structured as fact and dimension tables. This layer is optimized for analytics, reporting, and dashboards.
 
 ---
 ## 📖 Project Overview
@@ -22,6 +22,20 @@ This project involves:
 2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
 3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
 4. **Analytics & Reporting**: Performing EDA and creating SQL-based reports on the Gold layer (fact and dimension tables) to generate actionable business insights.
+
+This repository demonstrates:
+
+1. **Data Engineering**  
+   Building a modern data warehouse using PostgreSQL, including ETL pipelines for extraction, cleansing, transformation, and loading.
+
+2. **Data Modeling**  
+   Designing fact and dimension tables following star schema principles.
+
+3. **Exploratory Data Analysis (EDA)**  
+   Performing dimension exploration, date analysis, measure exploration, ranking analysis, and magnitude analysis using the Gold layer.
+
+4. **Advanced Data Analytics (ADA)**  
+   Implementing business intelligence techniques such as change-over-time analysis, cumulative analysis, performance analysis, part-to-whole analysis, segmentation, and producing customer and product analytical reports.
 
 🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
 - SQL Development
@@ -79,7 +93,8 @@ data-warehouse-project/
 │   ├── bronze/                         # Scripts for extracting and loading raw data
 │   ├── silver/                         # Scripts for cleaning and transforming data
 │   ├── gold/                           # Scripts for creating analytical models
-|   └── eda_analysis                    # SQL scripts for EDA and business analysis
+│   ├── eda_analysis/ # SQL queries for EDA
+│   ├── advanced_analytics/ # SQL scripts for advanced analytics and reporting
 │
 ├── tests/                              # Data quality checks, validation queries, and test scripts
 │
